@@ -1,0 +1,358 @@
+feb 14
+1 https://leetcode.com/problems/number-of-students-doing-homework-at-a-given-time/
+public class{
+ public static void main(String[] args) {
+int[] startTime= {1,2,3,3};
+		int[] endTime= {3,2,7,8};
+		int queryTime=4;
+		int noofstud=0;
+		for(int i=0;i<startTime.length;i++) {
+				if(startTime[i]<=queryTime && endTime[i]>=queryTime) {
+				noofstud++;
+			}
+		}
+		System.out.print(noofstud);
+	}
+}
+----------------------------------------------------------------------------------------------------------------
+2 https://leetcode.com/problems/running-sum-of-1d-array/
+public class{
+static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s=new Scanner(System.in);
+		System.out.print("Enter the size of array :");
+		int n= s.nextInt();
+		int[] arr=new int[n];
+		int sum=0;
+		System.out.print("enter the array elements :");
+		for(int i=0;i<n;i++) {
+			arr[i]=s.nextInt();
+				}
+		System.out.print("sum of array is :");
+		for(int i=0;i<arr.length;i++) {
+			sum=sum+arr[i];
+			arr[i]=sum;
+				System.out.println(arr[i] +" ");
+		}
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------
+3 Given two arrays, find the intersection between them?
+        Input : int[]  arr1 = {1, 2, 3, 4, 5, 6};
+                 int[] arr2 = {2, 3, 4, 7, 8};
+public class FindIntersection {
+  
+   public  static void printIntersection(int arr1[], int arr2[], int m, int n)
+    {
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (arr1[i] < arr2[j])
+                i++;
+            else if (arr2[j] < arr1[i])
+                j++;
+            else {
+                System.out.print(arr2[j++] + " ");
+                i++;
+            }
+        }
+    }
+ 
+    public static void main(String args[])
+    {
+        int arr1[] = { 1, 2, 4, 5, 6 };
+        int arr2[] = { 2, 3, 5, 7 };
+        int m = arr1.length;
+        int n = arr2.length;
+        printIntersection(arr1, arr2, m, n);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------
+4 Write a program to find second largest element in a given Array in java?"
+public class SecondLargestInArrayExample{  
+public static int getSecondLargest(int[] a, int total){  
+int temp;  
+for (int i = 0; i < total; i++)   
+        {  
+            for (int j = i + 1; j < total; j++)   
+            {  
+                if (a[i] > a[j])   
+                {  
+                    temp = a[i];  
+                    a[i] = a[j];  
+                    a[j] = temp;  
+                }  
+            }  
+        }  
+       return a[total-2];  
+}  
+public static void main(String args[]){  
+int a[]={1,2,6,5,7,8};  
+int b[]={99,12,78,54,77,88,61,54};  
+System.out.println("Second Largest: "+getSecondLargest(a,6));  
+System.out.println("Second Largest: "+getSecondLargest(b,7));  
+}}  
+------------------------------------------------------------------------------------------------------------------
+feb 15 
+1. add two 2D matrices to get the result matrix (Add the elements at corresponding rows and columns positions
+
+public class MyClass {
+    public static void main(String args[]) {
+     int a[][] = {{3,4,5},{2,3,4},{4,6,8}};
+         int b[][] ={{9,8,7},{7,5,2},{2,4,6}};
+           int[][] c= new int[3][3];
+         for(int i=0;i<3;i++){
+             for(int j=0;j<3;j++){
+                 c[i][j] =a[i][j]+b[i][j];
+                  System.out.print(c[i][j]+" ");
+             }
+             System.out.println();
+         }
+         
+    }
+}
+----------------------------------------------------------------------------------------------------------------
+2 Given an M × N integer matrix, print it in spiral order
+   Input:
+ 
+	[  1   2   3   4  5 ]
+	[ 16  17  18  19  6 ]
+	[ 15  24  25  20  7 ]
+	[ 14  23  22  21  8 ]
+	[ 13  12  11  10  9 ]
+ 
+
+import java.util.*;
+ 
+ public class GFG {
+    
+    public static int R = 4;
+    public static int C = 4;
+ 
+    
+   public static void print(int arr[][], int i, int j, int m,
+                      int n)
+    {
+        
+        if (i >= m || j >= n) {
+            return;
+}
+   for (int p = i; p < n; p++) {
+            System.out.print(arr[i][p] + " ");
+        }
+  for (int p = i + 1; p < m; p++) {
+            System.out.print(arr[p][n - 1] + " ");
+        }
+   if ((m - 1) != i) {
+            for (int p = n - 2; p >= j; p--) {
+                System.out.print(arr[m - 1][p] + " ");
+            }
+        }
+ if ((n - 1) != j) {
+ for (int p = m - 2; p > i; p--) {
+                System.out.print(arr[p][j] + " ");
+            }
+        }
+        print(arr, i + 1, j + 1, m - 1, n - 1);
+    }
+       public static void main(String[] args)
+    {
+        int a[][] = {{ 1 , 2,  3 , 4 ,5 },{ 16 , 17 ,18 ,19 , 6 },{ 15 , 24  ,25,20, 7 },{ 14,  23 , 22 , 21  ,8 },{13,  12 , 11 , 10 , 9 }};
+   print(a, 0, 0, R, C);
+    }
+}
+------------------------------------------------------------------------------------------------------------------
+ 3   Change all elements of row `i` and column `j` in a matrix to 0 if cell `(i, j)` is 0
+	Input :
+		[ 1  1  0  1  1 ]
+		[ 1  1  1  1  1 ]
+		[ 1  1  1  0  1 ]
+		[ 1  1  1  1  1 ]
+		[ 0  1  1  1  1 ]
+ 
+	Output:
+ 
+		[ 0  0  0  0  0 ]
+		[ 0  1  0  0  1 ]
+		[ 0  0  0  0  0 ]
+		[ 0  1  0  0  1 ]
+		[ 0  0  0  0  0 ]"
+
+import java.util.Arrays;
+ public class Main
+{
+   public static void changeRowColumn(int[][] mat, int M, int N, int x, int y)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            if (mat[x][j] != 0) {
+                mat[x][j] = -1;
+            }
+        }
+ 
+        for (int i = 0; i < M; i++)
+        {
+            if (mat[i][y] != 0) {
+                mat[i][y] = -1;
+            }
+        }
+    }
+    public static void convert(int[][] mat)
+    {
+        if (mat == null || mat.length == 0) {
+            return;
+        }
+        int M = mat.length;
+        int N = mat.length;
+        for (int i = 0; i < M; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
+                if (mat[i][j] == 0)            
+                {
+                    changeRowColumn(mat, M, N, i, j);
+                }
+            }
+        }
+ 
+        for (int i = 0; i < M; i++)
+        {
+            for (int j = 0; j < N; j++)
+            {
+                if (mat[i][j] == -1) {
+                    mat[i][j] = 0;
+                }
+            }
+        }
+    }
+ 
+    public static void main(String[] args)
+    {
+        int[][] mat =
+        {
+            { 1, 1, 0, 1, 1 },
+            { 1, 1, 1, 1, 1 },
+            { 1, 1, 0, 1, 1 },
+            { 1, 1, 1, 1, 1 },
+            { 0, 1, 1, 1, 1 }
+        };
+        convert(mat);
+        for (var r: mat) {
+            System.out.println(Arrays.toString(r));
+        }
+    }
+}
+-----------------------------------------------------------------------------------------------------------------------
+feb 16 home work
+ 
+"1.Find the frequency of odd and even in given matrix
+
+Input : 
+[1  3  5]
+[2  4  1]
+[7  8  9]
+public class OddEven    
+{    
+    public static void main(String[] args) {    
+        int rows, cols, countOdd = 0, countEven = 0;      
+        int a[][] = {       
+                        {1,3,5},    
+                        {2,4,1},    
+                        {7,8,9}    
+                    };     
+          rows = a.length;    
+        cols = a[0].length;    
+        for(int i = 0; i < rows; i++){    
+            for(int j = 0; j < cols; j++){    
+              if(a[i][j] % 2 == 0)    
+                countEven++;    
+              else    
+                countOdd++;    
+            }    
+        }    
+            
+        System.out.println("Frequency of odd numbers: " + countOdd);    
+        System.out.println("Frequency of even numbers: " + countEven);    
+    }    
+}    
+-------------------------------------------------------------------------------------------------------------------
+
+2 .Find the sum of anti diagonal elements in given matrix
+
+ import java.util.Scanner;
+ 
+public class arr
+{  
+ public static void main(String args[])
+ {
+ Scanner sc = new Scanner(System.in);
+ 
+         int i,j,row,col,sum=0;
+ System.out.println("Enter the number of rows:");
+ row = sc.nextInt();
+ System.out.println("Enter the number of columns:");
+ col = sc.nextInt();
+ 
+ int[][] mat = new int[row][col];
+ 
+     System.out.println("Enter the elements of the matrix") ;
+     for(i=0;i<row;i++)
+     { 
+      for(j=0;j<col;j++)
+      { 
+          mat[i][j] = sc.nextInt();
+     }
+ }
+ 
+     System.out.println("The elements of the matrix") ;
+     for(i=0;i<row;i++)
+     { 
+      for(j=0;j<col;j++)
+      { 
+        System.out.print(mat[i][j]+"\t");
+     }
+       System.out.println("");
+ }
+ 
+     for(i=0;i<row;i++)
+     { 
+      for(j=0;j<col;j++)
+      { 
+ if(i==j) 
+ {
+ sum = sum + mat[i][j];
+ }
+     }
+ }
+ 
+     System.out.printf("SUM of DIAGONAL elements of the matrix = "+sum) ;
+ } 
+}
+-------------------------------------------------------------------------------------------------------------------
+ 3.Display the string represented by each row of given matrix.
+
+public class SumofRowColumn    
+{    
+    public static void main(String[] args) {    
+        int rows, cols, sumRow, sumCol;    
+        int a[][] = {  {""Hello"" ,""Geekster""},{""good"",""day""}}; 
+          rows = a.length;    
+        cols = a[0].length;    
+        for(int i = 0; i < rows; i++){    
+            sumRow = 0;    
+            for(int j = 0; j < cols; j++){    
+              sumRow = sumRow + a[i][j];    
+            }    
+            System.out.println("Sum of " + (i+1) +" row: " + sumRow);    
+        }    
+            for(int i = 0; i < cols; i++){    
+            sumCol = 0;    
+            for(int j = 0; j < rows; j++){    
+              sumCol = sumCol + a[j][i];    
+            }    
+            System.out.println("Sum of " + (i+1) +" column: " + sumCol);    
+        }    
+    }    
+}    
+------------------------------------------------------------------------------------------------------------------
+  
+
